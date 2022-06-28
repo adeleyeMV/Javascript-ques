@@ -1,10 +1,9 @@
-# JavaScript Interview Questions & Answers
+## JavaScript Questions & Answers
 
-### #1 Table of Contents:
+### # FCC Algorithm Scripting Questions :
 
-| S.No. |                   Questions                  |
-| :---: |    --------------------------------------    |
-|   1   | Compare two array or object with JavaScript  |
-
-### #2 References- 
-- [LearnersBucket](https://learnersbucket.com) Blogs
+| S.No. |                   Questions                  |  My Solution |
+| :---: |    --------------------------------------    |   :----:     |
+|   1   | [Sum All Numbers in a Range](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/sum-all-numbers-in-a-range) | [Solution](fcc-ques/sum-all-numbers-in-a-range.js) |
+|   2   | [Difference of Two Arrays](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/diff-two-arrays) | [Solution](fcc-ques/diff-two-arrays.js) |
+|   3   | [Seek and Destroy](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/seek-and-destroy) | [Solution](fcc-ques/seek-and-destroy.js) |
