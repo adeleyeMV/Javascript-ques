@@ -1,9 +1,15 @@
-## JavaScript Questions & Answers
+# JavaScript Questions & Answers
 
-### # FCC Algorithm Scripting Questions :
+## #1 Questions :
 
-| S.No. |                   Questions                  |  My Solution |
-| :---: |    --------------------------------------    |   :----:     |
-|   1   | [Sum All Numbers in a Range](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/sum-all-numbers-in-a-range) | [Solution](fcc-ques/sum-all-numbers-in-a-range.js) |
-|   2   | [Difference of Two Arrays](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/diff-two-arrays) | [Solution](fcc-ques/diff-two-arrays.js) |
-|   3   | [Seek and Destroy](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/intermediate-algorithm-scripting/seek-and-destroy) | [Solution](fcc-ques/seek-and-destroy.js) |
+| S.No. | Questions  with Answers |  
+| :---: |    -----------------    |
+|   1   | Compare two array or object with JavaScript |
+|   2   | How to merge objects in javascript |
+|   n   |  |
+
+## #2 [FCC Algo Scripting Ques n Ans](fcc-ques/README.md)
+
+## References :
+- [FreeCodeCamp](https://www.freecodecamp.org/)
+- [LearnersBucket](https://learnersbucket.com/)
