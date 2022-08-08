@@ -1,4 +1,4 @@
-#### 1. Promise Executor
+#### 1. Promise Executor (#2)
 ```javascript
 new Promise((resolve, reject) => {
   resolve(1)
@@ -20,7 +20,7 @@ new Promise((resolve, reject) => {
 
 ------
 
-#### 2. Comparison Operator (==)
+#### 2. Comparison Operator (==) (#79)
 ```javascript
 console.log(2.0 == "2" == new Boolean(true) == "1")
 ```
@@ -41,7 +41,7 @@ true
 
 ------
 
-#### 3. undefined
+#### 3. undefined (#69)
 ```javascript
 function foo(a, b, undefined, undefined) {
   console.log('BFE.dev')
@@ -60,7 +60,7 @@ Also, We have just called the <code>foo.length</code> not invoked the <code>foo<
 
 ------
 
-#### 4. let
+#### 4. let (#89)
 ```javascript
 let a = 1;
 (function() {
@@ -79,7 +79,7 @@ let a = 1;
 
 ------
 
-#### 5. RegExp.prototype.test
+#### 5. RegExp.prototype.test (#40)
 ```javascript
 console.log(/^4\d\d$/.test('404'))
 console.log(/^4\d\d$/.test(404))
@@ -102,7 +102,7 @@ Also, <code>test()</code> expects a string as input, against which to match the 
 
 ------
 
-#### 6. Implicit Coercion
+#### 6. Implicit Coercion (#46)
 ```javascript
 const foo = [0]
 if (foo) {
@@ -124,7 +124,7 @@ Now come to if block. Here both values is converted into Number (due to <code>==
 
 ------
 
-#### 7. Precedence
+#### 7. Precedence (#34)
 ```javascript
 let a = 1;  console.log(a +++ a)
 let b = 1;  console.log(b + + + b)
@@ -147,7 +147,7 @@ And, <code>(a + + + a)</code> is equivalent to <code>(a + a)</code>
 
 ------
 
-#### 8. Var
+#### 8. Var (#39)
 ```javascript
 function foo() {
   console.log(i)
@@ -171,7 +171,7 @@ undefined
 
 ------
 
-#### 9. Function call
+#### 9. Function call (#44)
 ```javascript
 function a() {
   console.log(1)
@@ -199,7 +199,7 @@ Calling <code>a().a()</code> invoked the returned Object method <code>a()</code>
 
 ------
 
-#### 10. Operator Precedence
+#### 10. Operator Precedence (#13)
 ```javascript
 console.log(0 == 1 == 2)
 console.log(2 == 1 == 0)
