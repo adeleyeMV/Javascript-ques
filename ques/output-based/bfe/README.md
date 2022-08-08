@@ -221,8 +221,83 @@ false   // (3 > 2)--- (true > 1)--- (1 > 1)--- false
 </p>
 </details>
 
+------
+
+#### 11. in (#63)
+```javascript
+const obj = {
+  foo: 'bar'
+}
+console.log('foo' in obj)
+console.log(['foo'] in obj)
+```
+<details><summary>Answer</summary>
+<p>
+<code>ans</code>
+<br />
+<b>Reason-</b> reason
+</p>
+</details>
+
+------
+
+#### 12. Prototype 2 (#53)
+```javascript
+function F() {
+  this.foo = 'bar'
+}
+const f = new F()
+console.log(f.prototype)
+```
+<details><summary>Answer</summary>
+<p>
+<code>ans</code>
+<br />
+<b>Reason-</b> reason
+</p>
+</details>
+
+------
+
+#### 13. Two-way Generator (#71)
+```javascript
+function* gen() {
+  yield 2 * (yield 100)
+}
+const generator = gen()
+console.log(generator.next().value)
+console.log(generator.next(1).value)
+console.log(generator.next(1).value)
+```
+<details><summary>Answer</summary>
+<p>
+<code>ans</code>
+<br />
+<b>Reason-</b> reason
+</p>
+</details>
+
+------
+
+#### 14. Push unshift (#37)
+```javascript
+const arr = [1,2]
+arr.push(3,4)
+arr.unshift(5,6)
+console.log(arr)
+```
+<details><summary>Answer</summary>
+<p>
+<code>ans</code>
+<br />
+<b>Reason-</b> reason
+</p>
+</details>
+
+------
+
 <!--
-#### n. ques
+#### n. ques (#)
 ```javascript
 // code
 ```
@@ -233,5 +308,6 @@ false   // (3 > 2)--- (true > 1)--- (1 > 1)--- false
 <b>Reason-</b> reason
 </p>
 </details>
+
 ------
 -->
