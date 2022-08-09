@@ -232,11 +232,10 @@ console.log('foo' in obj)
 console.log(['foo'] in obj)
 ```
 <details><summary>Answer</summary>
-<p>
-<code>ans</code>
-<br />
-<b>Reason-</b> reason
-</p>
+<pre>
+console.log('foo' in obj);  // true
+console.log(['foo'] in obj) // true - ['foo'] coerced to string
+</pre>
 </details>
 
 ------
@@ -251,9 +250,9 @@ console.log(f.prototype)
 ```
 <details><summary>Answer</summary>
 <p>
-<code>ans</code>
+<code>undefined</code>
 <br />
-<b>Reason-</b> reason
+<b>Reason-</b> Only constructor functions have <code>.prototype</code>. So when a new object (<code>f</code> in our case) is created, it gets its internal [ [Prototype] ] which cannot be directly accessed. Hence result is <code>undefined</code>
 </p>
 </details>
 
