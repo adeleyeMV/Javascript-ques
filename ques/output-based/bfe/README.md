@@ -269,11 +269,11 @@ console.log(generator.next(1).value)
 console.log(generator.next(1).value)
 ```
 <details><summary>Answer</summary>
-<p>
-<code>ans</code>
-<br />
-<b>Reason-</b> reason
-</p>
+<pre>
+generator.next().value   // 100: inner yield resolved first
+generator.next(1).value  // 2: replaces (yield 100) with 1 & perfomed 2 * 1
+generator.next(1).value  // undefined: gen status is done at this point
+</pre>
 </details>
 
 ------
@@ -287,9 +287,9 @@ console.log(arr)
 ```
 <details><summary>Answer</summary>
 <p>
-<code>ans</code>
+<code>[5,6,1,2,3,4]</code>
 <br />
-<b>Reason-</b> reason
+<b>Reason-</b> <code>push()</code> adds 1 or more elements to the end & <code>unshift()</code> adds 1 or more elements to the beginning of an array
 </p>
 </details>
 
