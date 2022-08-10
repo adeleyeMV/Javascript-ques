@@ -20,7 +20,7 @@ new Promise((resolve, reject) => {
 
 ------
 
-#### 2. Comparison Operator (==) (#79)
+#### 2. Equal III (#79)
 ```javascript
 console.log(2.0 == "2" == new Boolean(true) == "1")
 ```
@@ -295,6 +295,112 @@ console.log(arr)
 
 ------
 
+#### 15. Override Setter (#59)
+```javascript
+class A {
+  val = 1
+  get foo() {
+    return this.val
+  }
+}
+class B {
+  val = 2
+  set foo(val) {
+    this.val = val
+  }
+}
+const a = new A()
+const b = new B()
+console.log(a.foo)
+console.log(b.foo)
+b.foo = 3
+console.log(b.val)
+console.log(b.foo)
+```
+<details><summary>Answer</summary>
+<pre>
+1
+undefined
+3
+undefined
+</pre>
+<p>Missing getter means we can never get the value of the prop even if we have a set for it</p>
+</details>
+
+------
+
+#### 16. Array Length (#72)
+```javascript
+class MyArray extends Array {
+  get length() {
+    return 3
+  }
+}
+const arr1 = new MyArray(10); console.log(arr1.length)
+const arr2 = new Array(10); console.log(arr2.length)
+```
+<details><summary>Answer</summary>
+<pre>
+10
+10
+</pre>
+<p>Subclasses (<code>MyArray</code>) cannot override parent class (<code>Array</code>) properties. This is by design.
+</p>
+</details>
+
+------
+
+#### 17. setTimeout III (#86)
+```javascript
+let func = () => {
+  console.log(1)
+}
+setTimeout(() => {
+  func = () => {
+    console.log(2)
+  }
+}, 0)
+setTimeout(func, 100)
+```
+<details><summary>Answer</summary>
+<pre>
+setTimeout(func, 100)  // 1 after 100ms
+</pre>
+<p>func is changed inside the first setimeout but since this is part of the callback it will not execute until the first setTimeout is invoked.</p>
+</details>
+
+------
+
+#### 18. Hosting VI (#45)
+```javascript
+var foo = 1;
+(function () {
+  console.log(foo);
+  foo = 2;
+  console.log(window.foo);
+  console.log(foo);
+  var foo = 3;
+  console.log(foo);
+  console.log(window.foo)
+})()
+```
+<details><summary>Answer</summary>
+<pre>
+(function () {
+  // var foo;              // var declaration can be hoisted
+  console.log(foo);        // undefined- as foo is unintialized till now
+  foo = 2;
+  console.log(window.foo); // 1- outer foo
+  console.log(foo);        // 2- local foo
+  var foo = 3;
+  console.log(foo);        // 3- local foo
+  console.log(window.foo)  // 1- outer foo
+})()
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
@@ -302,8 +408,9 @@ console.log(arr)
 ```
 <details><summary>Answer</summary>
 <p>
-<code>ans</code>
-<br />
+<pre>
+ans
+</pre>
 <b>Reason-</b> reason
 </p>
 </details>
