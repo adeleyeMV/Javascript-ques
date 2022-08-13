@@ -401,18 +401,125 @@ var foo = 1;
 
 ------
 
+#### 19. Typed Array Length (#74)
+```javascript
+class MyArray extends Uint8Array {
+  get length() {
+    return 3
+  }
+}
+const arr1 = new MyArray(10)
+console.log(arr1.length)
+
+const arr2 = new Uint8Array(10)
+console.log(arr2.length)
+```
+<details><summary>Answer</summary>
+<p>Here, we are extending from Uint8Array typed array that uses ArrayBuffer and in this case Subclass constructors may over-ride it to change the constructor assignment</p>
+<pre>
+console.log(arr1.length)  // 3
+console.log(arr2.length)  // 10
+</pre>
+</details>
+
+------
+
+#### 20. comma (#66)
+```javascript
+var obj = {
+  a: "BFE",
+  b: "dev",
+  func: (function foo(){ return this.a; }, function bar(){ return this.b; })
+}
+console.log(obj.func())
+```
+<details><summary>Answer</summary>
+<p>comma operator evaluates from left to right and returns the last(right most) operand</p>
+<pre>
+console.log(obj.func()) // so func is assined with bar() and output is 'dev'
+</pre>
+<p></p>
+</details>
+
+------
+
+#### 21. non-writable (#57)
+```javascript
+const a = {}
+Object.defineProperty(a, 'foo1', {
+  value: 1
+})
+const b = Object.create(a)
+b.foo2 = 1
+
+console.log(b.foo1)
+console.log(b.foo2)
+
+b.foo1 = 2
+b.foo2 = 2
+
+console.log(b.foo1)
+console.log(b.foo2)
+```
+<details><summary>Answer</summary>
+<p><code>Object.defineProperty()</code> takes 3 parameters: the target object, name of the property and descriptor. The <code>writable descriptor</code> describes if the value associated with the property can be changed with an assignment operator. Defaults to false.
+</p>
+<pre>
+const b = Object.create(a)
+b.foo2 = 1
+
+console.log(b.foo1)  // 1
+console.log(b.foo2)  // 2
+
+b.foo1 = 2  // fails because it is non-writable property
+b.foo2 = 2
+
+console.log(b.foo1)  // 1
+console.log(b.foo2)  // 2
+</pre>
+</details>
+
+------
+
+#### 22. Promise executor II (#18)
+```javascript
+const p1 = Promise.resolve(1)
+const p2 = new Promise((resolve) => resolve(p1))
+const p3 = Promise.resolve(p1)
+const p4 = p2.then(() => new Promise((resolve) => resolve(p3)))
+const p5 = p4.then(() => p4)
+
+console.log(p1 == p2)
+console.log(p1 == p3)
+console.log(p3 == p4)
+console.log(p4 == p5)
+```
+<details><summary>Answer</summary>
+<p><code>Promise.resolve()</code> returns a Promise object that is resolved with a given value. If the value is a promise, that promise is returned; otherwise, the returned promise will be fulfilled with the value.</p>
+<pre>
+const p1 = Promise.resolve(1)  // Object=> `Promise { 1 }`
+const p2 = new Promise((resolve) => resolve(p1))  // Object => `Promise { <pending> }`
+const p3 = Promise.resolve(p1)  // Object => pointing to same object that `p1` is pointing i.e. `Promise { 1 }`
+const p4 = p2.then(() => new Promise((resolve) => resolve(p3)))  // Object => `Promise { <pending> }`
+const p5 = p4.then(() => p4)  // Object => `Promise { <pending> }`
+
+console.log(p1 == p2)  // false as both are pointing to different object
+console.log(p1 == p3)  // true as both point to same object
+console.log(p3 == p4)  // false as both are pointing to different object
+console.log(p4 == p5)  // false as both are pointing to different object
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
 // code
 ```
 <details><summary>Answer</summary>
-<p>
-<pre>
-ans
-</pre>
-<b>Reason-</b> reason
-</p>
+<pre></pre>
+<p></p>
 </details>
 
 ------
