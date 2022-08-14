@@ -512,6 +512,138 @@ console.log(p4 == p5)  // false as both are pointing to different object
 
 ------
 
+#### 23. Math (#31)
+```javascript
+console.log(1 / 0)
+console.log(0 / 0)
+console.log(-1 / 0)
+console.log(1 / 0 * 0)
+console.log(1 / 0 * 1)
+console.log(1 / 0 * -1)
+console.log(1 / 0 * 1 + 1 / 0 * 1)
+console.log(1 / 0 * 1 - 1 / 0 * 1)
+console.log(1 / 0 * 1 * (1 / 0 * 1))
+console.log(1 / 0 * 1 / (1 / 0 * 1))
+console.log(0 / Infinity)
+console.log(0 * Infinity)
+```
+<details><summary>Answer</summary>
+<pre>
+(1 / 0)         // Infinity
+(0 / 0)         // NaN
+(-1 / 0)        // -Infinity
+(1 / 0 * 0)     // NaN = Infinity * 0
+(1 / 0 * 1)     // Infinity = Infinity * 1
+(1 / 0 * -1)    // -Infinity = Infinity * -1
+(1 / 0 * 1 + 1 / 0 * 1)     // Infinity = (Infinity * 1) + (Infinity * 1) 
+(1 / 0 * 1 - 1 / 0 * 1)     // NaN = (Infinity * 1) - (Infinity * 1)
+(1 / 0 * 1 * (1 / 0 * 1))   // Infinity = Infinity * 1 * (Infinity * 1)
+(1 / 0 * 1 / (1 / 0 * 1))   // NaN = Infinity * 1 / (Infinity * 1)
+(0 / Infinity)    // 0
+(0 * Infinity)    // NaN
+</pre>
+</details>
+
+------
+
+#### 24. Prototype (#48)
+```javascript
+function Foo() { }
+Foo.prototype.bar = 1
+const a = new Foo()
+console.log(a.bar)
+
+Foo.prototype.bar = 2
+const b = new Foo()
+console.log(a.bar)
+console.log(b.bar)
+
+Foo.prototype = {bar: 3}
+const c = new Foo()
+console.log(a.bar)
+console.log(b.bar)
+console.log(c.bar)
+```
+<details><summary>Answer</summary>
+<pre>
+function Foo() { }
+Foo.prototype.bar = 1
+const a = new Foo()
+console.log(a.bar)       // 1  
+
+Foo.prototype.bar = 2
+// Value of bar in Foo.prototype is updated
+
+const b = new Foo()
+console.log(a.bar)      // 2
+console.log(b.bar)      // 2
+
+Foo.prototype = {bar: 3}  // Foo.prototype starts pointing to a completly new object
+const c = new Foo()
+
+// proto property of a and b is still pointing to the object which was pointed by previous prototype of Foo. Thus a.bar & b.bar will print 2.
+console.log(a.bar)      // 2
+console.log(b.bar)      // 2
+console.log(c.bar)      // 3
+</pre>
+</details>
+
+------
+
+#### 25. Hoisting II (#28)
+```javascript
+const func1 = () => console.log(1)
+func1()
+
+func2()
+function func2() {
+  console.log(2)
+}
+
+func3()
+var func3 = function func4() {
+  console.log(3)
+}
+```
+<details><summary>Answer</summary>
+<pre>
+1
+2
+Error  
+</pre>
+</details>
+
+------
+
+#### 26. `this` II (#33)
+```javascript
+const obj = {
+  a: 1,
+  b() {
+    return this.a
+  }
+}
+console.log(obj.b())
+console.log((true ? obj.b : a)())
+console.log((true, obj.b)())
+console.log((3, obj['b'])())
+console.log((obj.b)())
+console.log((obj.c = obj.b)())
+```
+<details><summary>Answer</summary>
+<pre>
+obj.b()               // 1 -- return reference
+(true ? obj.b : a)()  // undefined  -- ternary operator returns value, which does not carry the info allowing to set this.
+(true, obj.b)()       // undefined  -- comma operator returns value, which does not carry the info allowing to set this.
+(3, obj['b'])()       // undefined  -- comma operator returns value, which does not carry the info allowing to set this.
+(obj.b)()             // 1  -- returns reference
+(obj.c = obj.b)()     // undefined  -- assignment operator returns value, which does not carry the info allowing to set this.
+</pre>
+<p></p>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
