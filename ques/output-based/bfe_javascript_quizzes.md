@@ -644,6 +644,32 @@ obj.b()               // 1 -- return reference
 
 ------
 
+#### 27. Largest Array index (#91)
+```javascript
+const arr = []
+arr[(2 ** 32) - 2] = 1
+arr[(2 ** 32) - 1] = 2
+console.log(arr.at(-1))
+```
+<details><summary>Answer</summary>
+<pre></pre>
+<p></p>
+</details>
+
+------
+
+#### 28. Meaningless Calculation (#75)
+```javascript
+const num = +((~~!+[])+(~~!+[])+[]+(~~!+[]))
+console.log(num)
+```
+<details><summary>Answer</summary>
+<pre></pre>
+<p></p>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
