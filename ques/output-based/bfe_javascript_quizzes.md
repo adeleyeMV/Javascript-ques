@@ -652,8 +652,10 @@ arr[(2 ** 32) - 1] = 2
 console.log(arr.at(-1))
 ```
 <details><summary>Answer</summary>
-<pre></pre>
-<p></p>
+<p>Check out about <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at'>Array.at()</a> and highest possible index is (2^32 - 2). Therefore, arr[(2 ** 32) - 1] = 2 can't be accessed due to exceeding array max length</p>
+<pre>
+console.log(arr.at(-1))  // 1
+</pre>
 </details>
 
 ------
@@ -664,8 +666,82 @@ const num = +((~~!+[])+(~~!+[])+[]+(~~!+[]))
 console.log(num)
 ```
 <details><summary>Answer</summary>
-<pre></pre>
-<p></p>
+<pre>
++((~~!+[])+(~~!+[])+[]+(~~!+[]))
++( 1 + 1 + [] + 1 )
++( 2 + [] + 1)
++( '2' + '' + '1' ) 
++('21') = 21
+</pre>
+</details>
+
+------
+
+#### 29. Increment Operator (#7)
+```javascript
+let a = 1
+const b = ++a
+const c = a++
+
+console.log(a)
+console.log(b)
+console.log(c)
+```
+<details><summary>Answer</summary>
+<pre>
+3
+2
+2
+</pre>
+</details>
+
+------
+
+#### 30. Equality & Sameness (#24)
+```javascript
+console.log(0 == '0')
+console.log(0 === '0')
+console.log(Object.is(0, '0'))
+
+console.log(0 == 0)
+console.log(0 === 0)
+console.log(Object.is(0, 0))
+
+console.log(0 == -0)
+console.log(0 === -0)
+console.log(Object.is(0, -0))
+
+console.log(NaN == NaN)
+console.log(NaN === NaN)
+console.log(Object.is(NaN, NaN))
+
+console.log(0 == false)
+console.log(0 === false)
+console.log(Object.is(0, false))
+```
+<details><summary>Answer</summary>
+<p>Check out about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is">Object.is()</a> and <code>NaN</code> compares unequal to any other value, including itself</p>
+<pre>
+console.log(0 == '0')          // true
+console.log(0 === '0')         // false
+console.log(Object.is(0, '0')) // false
+
+console.log(0 == 0)            // true
+console.log(0 === 0)           // true 
+console.log(Object.is(0, 0))   // true
+
+console.log(0 == -0)           // true
+console.log(0 === -0)          // true 
+console.log(Object.is(0, -0))  // false
+
+console.log(NaN == NaN)          // false
+console.log(NaN === NaN)         // false
+console.log(Object.is(NaN, NaN)) // true
+
+console.log(0 == false)          // true
+console.log(0 === false)         // false
+console.log(Object.is(0, false)) // false
+</pre>
 </details>
 
 ------
