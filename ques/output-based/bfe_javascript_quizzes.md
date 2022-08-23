@@ -746,6 +746,63 @@ console.log(Object.is(0, false)) // false
 
 ------
 
+#### 31. Block Scope (#5)
+```javascript
+for (var i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), 0)
+}
+for (let i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), 0)
+}
+```
+<details><summary>Answer</summary>
+<pre>
+for (var i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), 0)   // 5 5 5 5 5
+}
+for (let i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), 0)   // 0 1 2 3 4
+}
+</pre>
+<p>If we have any closures created in the loop, let variables will be bound to the value from only that iteration of the loop, whereas var variables will be the current value of the variable, which at that point of the settimeout it is 5</p>
+</details>
+
+------
+
+#### 32. Equal II (#30)
+```javascript
+console.log([1] == 1)
+console.log([1] == '1')
+console.log(['1'] == '1')
+console.log(['1'] == 1)
+console.log([1] == ['1'])
+console.log(new Boolean(true) == 1)
+console.log(new Boolean(true) == new Boolean(true))
+console.log(Boolean(true) == '1')
+console.log(Boolean(false) == [0])
+console.log(new Boolean(true) == '1')
+console.log(new Boolean(false) == [0])
+console.log(null == undefined)
+```
+<details><summary>Answer</summary>
+<pre>
+([1] == 1)              // true-- (1 == 1)
+([1] == '1')            // true-- (1 == 1)
+(['1'] == '1')          // true-- (1 == 1)
+(['1'] == 1)            // true-- (1 == 1)
+([1] == ['1'])            // false-- 2 different arrays
+(new Boolean(true) == 1)  // true-- (1 == 1)
+(new Boolean(true) == new Boolean(true))   // false-- 2 different objects 
+(Boolean(true) == '1')       // true-- (true == '1')--(1 == 1)
+(Boolean(false) == [0])      // true-- (false == [0])--(0 == 0)
+(new Boolean(true) == '1')   // true-- (true == '1')--(1 == 1)
+(new Boolean(false) == [0])  // false-- 2 different objects
+(null == undefined)          // true
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
