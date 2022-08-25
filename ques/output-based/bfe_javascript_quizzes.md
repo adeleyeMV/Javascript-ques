@@ -803,6 +803,33 @@ console.log(null == undefined)
 
 ------
 
+#### 33. true or false (#26)
+```javascript
+console.log([] == 0)
+console.log([] == false)
+console.log(!![])
+console.log([1] == 1)
+console.log(!![1])
+console.log(Boolean([]))
+console.log(Boolean(new Boolean([])))
+console.log(Boolean(new Boolean(false)))
+```
+<details><summary>Answer</summary>
+<p>When types mismatch then JavaScript tries to coerce the right-side value to match the type of the left-side</p>
+<pre>
+([] == 0)        // true-- (0 == 0)
+([] == false)    // true-- (0 == 0)
+(!![])           // true-- (!!true)
+([1] == 1)       // true-- (1 == 1)
+(!![1])          // true-- (!!true)
+(Boolean([]))    // true
+(Boolean(new Boolean([])))      // true-- Boolean(any object)
+(Boolean(new Boolean(false)))   // true-- Boolean(any object)
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
