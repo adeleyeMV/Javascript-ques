@@ -830,6 +830,24 @@ console.log(Boolean(new Boolean(false)))
 
 ------
 
+#### 34. Comparison (#96)
+```javascript
+console.log(10 > 9)
+console.log(10 > '9')
+console.log('10' > 9)
+console.log('10' > '9')
+```
+<details><summary>Answer</summary>
+<pre>
+(10 > 9)        // true
+(10 > '9')      // true
+('10' > 9)      // true
+('10' > '9')    // false; get compared lexicographically and '1' < '9' so '10' < '9'
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
