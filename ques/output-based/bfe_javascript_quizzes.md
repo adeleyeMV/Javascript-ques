@@ -434,11 +434,8 @@ var obj = {
 console.log(obj.func())
 ```
 <details><summary>Answer</summary>
+<code>'dev'</code>
 <p>comma operator evaluates from left to right and returns the last(right most) operand</p>
-<pre>
-console.log(obj.func()) // so func is assined with bar() and output is 'dev'
-</pre>
-<p></p>
 </details>
 
 ------
@@ -469,7 +466,7 @@ const b = Object.create(a)
 b.foo2 = 1
 
 console.log(b.foo1)  // 1
-console.log(b.foo2)  // 2
+console.log(b.foo2)  // 1
 
 b.foo1 = 2  // fails because it is non-writable property
 b.foo2 = 2
@@ -497,16 +494,16 @@ console.log(p4 == p5)
 <details><summary>Answer</summary>
 <p><code>Promise.resolve()</code> returns a Promise object that is resolved with a given value. If the value is a promise, that promise is returned; otherwise, the returned promise will be fulfilled with the value.</p>
 <pre>
-const p1 = Promise.resolve(1)  // Object=> `Promise { 1 }`
-const p2 = new Promise((resolve) => resolve(p1))  // Object => `Promise { <pending> }`
-const p3 = Promise.resolve(p1)  // Object => pointing to same object that `p1` is pointing i.e. `Promise { 1 }`
-const p4 = p2.then(() => new Promise((resolve) => resolve(p3)))  // Object => `Promise { <pending> }`
-const p5 = p4.then(() => p4)  // Object => `Promise { <pending> }`
+const p1 = Promise.resolve(1)                                     // Object=> Promise { 1 }
+const p2 = new Promise((resolve) => resolve(p1))                  // Object => Promise { <pending> }
+const p3 = Promise.resolve(p1)                                    // Object => pointing to same object that p1 is pointing i.e. Promise { 1 }
+const p4 = p2.then(() => new Promise((resolve) => resolve(p3)))   // Object => Promise { <pending> }
+const p5 = p4.then(() => p4)                                      // Object => Promise { <pending> }
 
-console.log(p1 == p2)  // false as both are pointing to different object
-console.log(p1 == p3)  // true as both point to same object
-console.log(p3 == p4)  // false as both are pointing to different object
-console.log(p4 == p5)  // false as both are pointing to different object
+console.log(p1 == p2)   // false-- both are pointing to different object
+console.log(p1 == p3)   // true -- both point to same object
+console.log(p3 == p4)   // false-- both are pointing to different object
+console.log(p4 == p5)   // false-- both are pointing to different object
 </pre>
 </details>
 
