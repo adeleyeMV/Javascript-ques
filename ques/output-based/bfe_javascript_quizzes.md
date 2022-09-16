@@ -845,6 +845,47 @@ console.log('10' > '9')
 
 ------
 
+#### 35. Inherit Getter Setter (#58)
+```javascript
+let val = 0
+
+class A {
+  set foo(_val){ val = _val }
+  get foo(){ return val }
+}
+
+class B extends A { }
+
+class C extends A {
+  get foo(){ return val}
+}
+
+const b = new B()
+console.log(b.foo)
+b.foo = 1
+console.log(b.foo)
+
+const c = new C()
+console.log(c.foo)
+c.foo = 2
+console.log(c.foo)
+console.log(b.foo)
+```
+<details><summary>Answer</summary>
+<pre>
+console.log(b.foo)    // 0
+b.foo = 1             // global variable 'val' got updated
+console.log(b.foo)    // 1 <br/>
+const c = new C()
+console.log(c.foo)    // 1
+c.foo = 2             // no effect as there is no setter in class C
+console.log(c.foo)    // 1
+console.log(b.foo)    // 1
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
