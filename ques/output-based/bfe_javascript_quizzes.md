@@ -886,6 +886,30 @@ console.log(b.foo)    // 1
 
 ------
 
+#### 36. 'this' (#97)
+```javascript
+const obj = {
+  prefix: 'BFE',
+  list: ['1', '2', '3'],
+  log() {
+    this.list.forEach(function (item) {
+      console.log(this.prefix + item);
+    });
+  },
+};
+obj.log();
+```
+<details><summary>Answer</summary>
+<pre>
+'undefined1'
+'undefined2'
+'undefined3'
+</pre>
+<p><code>this</code> inside <code>forEach</code> callback func will refer to window as it's not the obj invoking callback. Hence <code>this.prefix</code> will be <code>undefined</code></p>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
