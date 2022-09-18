@@ -910,6 +910,26 @@ obj.log();
 
 ------
 
+#### 37. min max (#22)
+```javascript
+console.log(Math.min())
+console.log(Math.max())
+console.log(Math.min(1))
+console.log(Math.max(1,2))
+console.log(Math.min([1,2,3]))
+```
+<details><summary>Answer</summary>
+<pre>
+Infinity
+-Infinity
+1
+2
+NaN
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
