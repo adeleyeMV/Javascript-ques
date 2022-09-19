@@ -930,6 +930,25 @@ NaN
 
 ------
 
+#### 38. Function Name (#65)
+```javascript
+var foo = function bar(){ 
+  return 'BFE'; 
+};
+
+console.log(foo());
+console.log(bar());
+```
+<details><summary>Answer</summary>
+<pre>
+console.log(foo());  // 'BFE'
+console.log(bar());  // Error as named exp only available in func body
+</pre>
+</details>
+
+------
+
+
 <!--
 #### n. ques (#)
 ```javascript
