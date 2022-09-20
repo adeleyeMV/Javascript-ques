@@ -948,6 +948,31 @@ console.log(bar());  // Error as named exp only available in func body
 
 ------
 
+#### 39. Hoisting III (#29)
+```javascript
+var a = 1
+function func() {
+  a = 2
+  console.log(a)
+  var a
+}
+func()
+console.log(a)
+
+if (!('b' in window)) {
+  var b = 1
+}
+console.log(b)
+```
+<details><summary>Answer</summary>
+<pre>
+2
+1
+undefined
+</pre>
+</details>
+
+------
 
 <!--
 #### n. ques (#)
