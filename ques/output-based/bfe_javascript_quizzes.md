@@ -974,6 +974,25 @@ undefined
 
 ------
 
+#### 40. Function (#70)
+```javascript
+function foo(){ console.log(1) }
+var foo = 2
+function foo(){ console.log(3) }
+foo()
+```
+<details><summary>Answer</summary>
+<p><b>Hoisting Order of Precedence</b>: variable assigment > function declaration > variable declaration</p>
+<pre>
+function foo(){ console.log(1) } // declaration will be hoisted & foo = function
+var foo = 2                      // variable will be hoisted & function get replaced by foo = 2 due to above rule
+function foo(){ console.log(3) } // no effect due to above rule
+foo()                            // Error-- invoking a number isn't possible
+</pre>
+</details>
+
+------
+
 <!--
 #### n. ques (#)
 ```javascript
