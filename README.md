@@ -1,4 +1,4 @@
-## JavaScript Questions & Answers
+## JavaScript Problems & Solutions
 
 ### #1 Output Based Questions
 | S.No. |  Questions | Solutions |
